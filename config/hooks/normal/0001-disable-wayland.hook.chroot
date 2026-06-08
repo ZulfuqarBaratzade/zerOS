@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+mkdir -p /etc/gdm3
+cat > /etc/gdm3/daemon.conf << 'EOF'
+[daemon]
+WaylandEnable=false
+EOF

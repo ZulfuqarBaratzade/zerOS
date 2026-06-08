@@ -1,0 +1,14 @@
+binary/
+cache/
+chroot/
+.build/
+*.iso
+*.img
+*.log
+tmp/
+.env
+*.pem
+*.key
+.vscode/
+*~
+.DS_Store

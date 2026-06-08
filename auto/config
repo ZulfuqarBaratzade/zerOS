@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+lb config noauto \
+    --mode debian \
+    --distribution bookworm \
+    --binary-images iso-hybrid \
+    --debian-installer none \
+    --memtest none \
+    "${@}"

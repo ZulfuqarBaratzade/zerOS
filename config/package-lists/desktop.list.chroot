@@ -1,0 +1,14 @@
+xserver-xorg-core
+xserver-xorg-video-all
+xserver-xorg-input-all
+gnome-core
+gdm3
+sudo
+network-manager
+network-manager-gnome
+git
+curl
+firefox-esr
+live-boot
+live-config
+live-config-systemd

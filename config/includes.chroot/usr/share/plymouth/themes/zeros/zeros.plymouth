@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=zeros
+Description=zerOS boot theme
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/zeros
+ScriptFile=/usr/share/plymouth/themes/zeros/zeros.script

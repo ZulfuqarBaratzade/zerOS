@@ -1,0 +1,25 @@
+#!/bin/bash
+set -e
+
+mkdir -p /etc/dconf/profile
+
+cat > /etc/dconf/profile/user << 'EOF'
+user-db:user
+system-db:local
+EOF
+
+mkdir -p /etc/dconf/db/local.d
+
+cat > /etc/dconf/db/local.d/01-theme << 'EOF'
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+gtk-theme='Adwaita-dark'
+icon-theme='Adwaita'
+font-name='Cantarell 11'
+
+[org/gnome/desktop/background]
+picture-uri='file:///usr/share/backgrounds/zeros-wallpaper.jpg'
+picture-uri-dark='file:///usr/share/backgrounds/zeros-wallpaper.jpg'
+EOF
+
+dconf update

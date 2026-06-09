@@ -1,0 +1,4 @@
+GRUB_DISTRIBUTOR="zerOS"
+GRUB_TIMEOUT=5
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+GRUB_BACKGROUND="/boot/grub/background.png"

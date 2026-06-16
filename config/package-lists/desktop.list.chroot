@@ -12,3 +12,6 @@ firefox-esr
 live-boot
 live-config
 live-config-systemd
+locales
+console-setup
+

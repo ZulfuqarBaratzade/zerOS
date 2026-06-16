@@ -7,7 +7,5 @@ lb config noauto \
     --binary-images iso-hybrid \
     --debian-installer none \
     --memtest none \
+    --bootappend-live "boot=live components locales=az_AZ.UTF-8 keyboard-layouts=az,us quiet splash"
     "${@}"
-
-
-    

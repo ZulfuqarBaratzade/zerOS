@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+echo "az_AZ.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+
+cat > /etc/default/locale << 'EOF'
+LANG=az_AZ.UTF-8
+LANGUAGE=az_AZ:az:en
+LC_ALL=az_AZ.UTF-8
+EOF
+
+update-locale LANG=az_AZ.UTF-8 LANGUAGE=az_AZ:az:en LC_ALL=az_AZ.UTF-8

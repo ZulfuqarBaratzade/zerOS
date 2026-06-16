@@ -1,0 +1,50 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: az\n"
+
+msgid "Accessibility"
+msgstr "Əlçatımlılıq"
+
+msgid "Appearance"
+msgstr "Görünüş"
+
+msgid "Background"
+msgstr "Arxa fon"
+
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+msgid "Display"
+msgstr "Ekran"
+
+msgid "Keyboard"
+msgstr "Klaviatura"
+
+msgid "Mouse & Touchpad"
+msgstr "Siçan və Toxunsalan"
+
+msgid "Network"
+msgstr "Şəbəkə"
+
+msgid "Notifications"
+msgstr "Bildirişlər"
+
+msgid "Power"
+msgstr "Güc"
+
+msgid "Privacy"
+msgstr "Məxfilik"
+
+msgid "Region & Language"
+msgstr "Bölgə və Dil"
+
+msgid "Settings"
+msgstr "Parametrlər"
+
+msgid "Sound"
+msgstr "Səs"
+
+msgid "Users"
+msgstr "İstifadəçilər"

@@ -1,7 +1,8 @@
 # config/common - common options for live-build(7)
 
 # Version of live-build used to build config (config format version)
-LB_CONFIGURATION_VERSION="20250814+kali3"
+# NOTE: regenerated automatically by `lb config` on every build
+LB_CONFIGURATION_VERSION="20250214"
 
 # Set package manager
 LB_APT="apt"

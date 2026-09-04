@@ -5,5 +5,7 @@ mkdir -p /etc/dconf/db/gdm.d
 
 cat > /etc/dconf/db/gdm.d/01-background << 'EOF'
 [org/gnome/login-screen]
-background='file:///usr/share/backgrounds/zeros-login.jpg'
+background='file:///usr/share/backgrounds/zeros-wallpaper.jpg'
 EOF
+
+dconf update

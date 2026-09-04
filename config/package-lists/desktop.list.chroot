@@ -14,4 +14,7 @@ live-config
 live-config-systemd
 locales
 console-setup
+dconf-cli
+plymouth
+firmware-linux
 

@@ -14,3 +14,10 @@ tmp/
 .DS_Store
 image.png
 commands.txt
+
+# live-build build artifacts
+binary.modified_timestamps
+chroot.files
+chroot.packages.*
+live-image-amd64.*
+wget-log*

@@ -1,0 +1,117 @@
+{
+  "commit": "b1aa32f713baf2570cfdd21eae364447402a0e49",
+  "initial_modified": [
+    ".gitignore",
+    "config/common"
+  ],
+  "initial_untracked": [
+    "docs/audits/2026-11-06-technical-audit.md",
+    "docs/planning/2026-11-07-alpha-decisions.md"
+  ],
+  "artifacts": [
+    {
+      "path": "binary",
+      "type": "directory",
+      "bytes": null,
+      "mtime_ns": 1791808285000000000,
+      "uid": 65534,
+      "gid": 65534
+    },
+    {
+      "path": "cache",
+      "type": "directory",
+      "bytes": null,
+      "mtime_ns": 1791809069343357290,
+      "uid": 65534,
+      "gid": 65534
+    },
+    {
+      "path": "chroot",
+      "type": "directory",
+      "bytes": null,
+      "mtime_ns": 1791809094675630007,
+      "uid": 65534,
+      "gid": 65534
+    },
+    {
+      "path": ".build",
+      "type": "directory",
+      "bytes": null,
+      "mtime_ns": 1791809095007633581,
+      "uid": 65534,
+      "gid": 65534
+    },
+    {
+      "path": "local",
+      "type": "directory",
+      "bytes": null,
+      "mtime_ns": 1791808285206915577,
+      "uid": 65534,
+      "gid": 65534
+    },
+    {
+      "path": "live-image-amd64.hybrid.iso",
+      "type": "file",
+      "bytes": 1393684480,
+      "mtime_ns": 1791808285000000000,
+      "uid": 65534,
+      "gid": 65534
+    },
+    {
+      "path": "chroot.files",
+      "type": "file",
+      "bytes": 7755994,
+      "mtime_ns": 1791808840846194845,
+      "uid": 65534,
+      "gid": 65534
+    },
+    {
+      "path": "chroot.packages.install",
+      "type": "file",
+      "bytes": 37797,
+      "mtime_ns": 1791808704406077983,
+      "uid": 65534,
+      "gid": 65534
+    },
+    {
+      "path": "chroot.packages.live",
+      "type": "file",
+      "bytes": 37797,
+      "mtime_ns": 1791808832734354962,
+      "uid": 65534,
+      "gid": 65534
+    },
+    {
+      "path": "live-image-amd64.contents",
+      "type": "file",
+      "bytes": 9650,
+      "mtime_ns": 1791809088851925723,
+      "uid": 65534,
+      "gid": 65534
+    },
+    {
+      "path": "live-image-amd64.files",
+      "type": "file",
+      "bytes": 7755994,
+      "mtime_ns": 1791808840846194845,
+      "uid": 65534,
+      "gid": 65534
+    },
+    {
+      "path": "live-image-amd64.packages",
+      "type": "file",
+      "bytes": 37797,
+      "mtime_ns": 1791808832734354962,
+      "uid": 65534,
+      "gid": 65534
+    },
+    {
+      "path": "binary.modified_timestamps",
+      "type": "file",
+      "bytes": 858,
+      "mtime_ns": 1791809092367605159,
+      "uid": 65534,
+      "gid": 65534
+    }
+  ]
+}

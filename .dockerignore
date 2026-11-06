@@ -1,0 +1,5 @@
+# The build image needs only its recipe and lock; never upload old ISOs/secrets.
+**
+!build/
+!build/Dockerfile
+!build/versions.json

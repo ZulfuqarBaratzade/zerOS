@@ -1,0 +1,10 @@
+{
+  "suite": "trixie",
+  "architecture": "amd64",
+  "snapshot": "20261106T000000Z",
+  "source_date_epoch": 1793923200,
+  "packages": {
+    "live-build": "1:20250505+deb13u1",
+    "debootstrap": "1.0.141"
+  }
+}

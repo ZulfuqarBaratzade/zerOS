@@ -3,8 +3,11 @@ set -e
 
 lb config noauto \
     --mode debian \
-    --distribution bookworm \
-    --binary-images iso-hybrid \
+    --distribution trixie \
+    --binary-image iso-hybrid \
+    --architecture amd64 \
+    --archive-areas "main contrib non-free-firmware" \
+    --bootloaders "syslinux grub-efi" \
     --debian-installer none \
     --memtest none \
     --bootappend-live "boot=live components locales=az_AZ.UTF-8 keyboard-layouts=az,us quiet splash" \

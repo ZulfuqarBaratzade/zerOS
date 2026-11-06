@@ -1,0 +1,368 @@
+diff --git a/Readme.md b/Readme.md
+index d9040bb..6874d54 100644
+--- a/Readme.md
++++ b/Readme.md
+@@ -2,9 +2,9 @@
+ 
+ > ⚠️ This project is currently under active development. Not ready for production use.
+ 
+-**zerOS** — [live-build](https://manpages.debian.org/live-build/) vasitəsilə **Debian Bookworm (12)** əsasında qurulmuş Linux distributividir. GNOME masaüstü mühiti, xüsusi dark tema, Azərbaycan dili (Azərbaycanca) lokalizasiyası və fərdi Plymouth boot animasiyası ilə gəlir.
++**zerOS** — [live-build](https://manpages.debian.org/live-build/) vasitəsilə **Debian Trixie (13)** əsasında qurulmuş Linux distributividir. GNOME masaüstü mühiti, xüsusi dark tema, Azərbaycan dili (Azərbaycanca) lokalizasiyası və fərdi Plymouth boot animasiyası ilə gəlir.
+ 
+-**zerOS** is a Linux distribution built on top of **Debian Bookworm (12)** using `live-build`. It ships with the GNOME desktop, a custom dark theme, Azerbaijani localization, and a custom Plymouth boot theme.
++**zerOS** is a Linux distribution built on top of **Debian Trixie (13)** using `live-build`. It ships with the GNOME desktop, a custom dark theme, Azerbaijani localization, and a custom Plymouth boot theme.
+ 
+ ## Features
+ 
+@@ -16,23 +16,24 @@
+ 
+ ## Build
+ 
+-Tələblər: Debian-based sistem, root icazəsi və `live-build` paketi.
++Build bazası: Debian 13 Trixie/amd64. Build yalnız disposable Debian VM-də hazırlanmış pinned mühitdə aparılır.
++
++[VM hazırlıq proseduru](docs/build/vm-preparation.md). ISO build üçün ayrıca başlanğıc göstərişi tələb olunur.
+ 
+ ```bash
+-sudo apt install live-build debootstrap
+-sudo bash scripts/build.sh
++bash scripts/build.sh --preflight
+ ```
+ 
+-Nəticə fayl: `live-image-amd64.hybrid.iso`
++Bu əmr yalnız statik preflight aparır, ISO yaratmır. Gələcək build nəticələri ayrıca `/tmp/zeros-build-...` sahəsində saxlanılır.
+ 
+ ## Default istifadəçi
+ 
+ | Sahə | Dəyər |
+ |------|-------|
+ | username | `zeros` |
+-| password | `zeros` |
++| password | Parol girişi kilidlidir; yalnız qrafik autologin nəzərdə tutulur |
+ 
+-> İstifadəçi `sudo` qrupundadır.
++> Məhdud daxili Alpha profili: istifadəçi sudo/adm qruplarında deyil; PolicyKit sorğuları rədd edilir. Wi-Fi, disk və power əməliyyatları məhdudlaşa bilər. GDM/PAM və boot uyğunluğu hələ test edilməyib.
+ 
+ ## Layihə strukturu
+ 
+diff --git a/auto/config b/auto/config
+index d91d17e..102198c 100755
+--- a/auto/config
++++ b/auto/config
+@@ -1,6 +1,9 @@
+ #!/bin/sh
+ set -e
+ 
++# One identity/security/locale policy shared by normal and failsafe boot entries.
++LIVE_POLICY="boot=live components username=zeros noroot nottyautologin locales=az_AZ.UTF-8 keyboard-layouts=az,us live-config.nocomponents=user-setup,live-debconfig_passwd,sudo,locales,policykit,gdm3,xinit"
++
+ lb config noauto \
+     --mode debian \
+     --distribution trixie \
+@@ -10,5 +13,6 @@ lb config noauto \
+     --bootloaders "syslinux grub-efi" \
+     --debian-installer none \
+     --memtest none \
+-    --bootappend-live "boot=live components locales=az_AZ.UTF-8 keyboard-layouts=az,us quiet splash" \
++    --bootappend-live "$LIVE_POLICY quiet splash" \
++    --bootappend-live-failsafe "$LIVE_POLICY noapic noapm nodma nomce nosmp nosplash vga=788" \
+     "${@}"
+diff --git a/config/hooks/normal/0006-locale.hook.chroot b/config/hooks/normal/0006-locale.hook.chroot
+deleted file mode 100755
+index ff46ca5..0000000
+--- a/config/hooks/normal/0006-locale.hook.chroot
++++ /dev/null
+@@ -1,13 +0,0 @@
+-#!/bin/bash
+-set -e
+-
+-echo "az_AZ.UTF-8 UTF-8" >> /etc/locale.gen
+-locale-gen
+-
+-cat > /etc/default/locale << 'EOF'
+-LANG=az_AZ.UTF-8
+-LANGUAGE=az_AZ:az:en
+-LC_ALL=az_AZ.UTF-8
+-EOF
+-
+-update-locale LANG=az_AZ.UTF-8 LANGUAGE=az_AZ:az:en LC_ALL=az_AZ.UTF-8
+diff --git a/config/hooks/normal/0100-create-default-user.hook.chroot b/config/hooks/normal/0100-create-default-user.hook.chroot
+index ff119b0..4b0e953 100755
+--- a/config/hooks/normal/0100-create-default-user.hook.chroot
++++ b/config/hooks/normal/0100-create-default-user.hook.chroot
+@@ -1,8 +1,4 @@
+-#!/bin/bash
+-set -e
+-
+-# zerOS default user
+-if ! id -u zeros >/dev/null 2>&1; then
+-    useradd -m -s /bin/bash -G sudo,adm,video,audio,cdrom,plugdev,netdev,users zeros
+-fi
+-echo "zeros:zeros" | chpasswd
+\ No newline at end of file
++#!/bin/sh
++set -eu
++# Disposable live user: locked password, no supplemental/admin groups.
++python3 /usr/lib/zeros/live_profile.py accounts
+diff --git a/config/includes.chroot/etc/gdm3/daemon.conf b/config/includes.chroot/etc/gdm3/daemon.conf
+index 553c8ca..bbb1b54 100644
+--- a/config/includes.chroot/etc/gdm3/daemon.conf
++++ b/config/includes.chroot/etc/gdm3/daemon.conf
+@@ -1,2 +1,6 @@
+ [daemon]
+-WaylandEnable=false
+\ No newline at end of file
++WaylandEnable=false
++# Disposable live session; password authentication is locked.
++AutomaticLoginEnable=true
++AutomaticLogin=zeros
++TimedLoginEnable=false
+diff --git a/config/package-lists/desktop.list.chroot b/config/package-lists/desktop.list.chroot
+index f53ce7b..c1583a1 100644
+--- a/config/package-lists/desktop.list.chroot
++++ b/config/package-lists/desktop.list.chroot
+@@ -18,3 +18,4 @@ dconf-cli
+ plymouth
+ firmware-linux
+ 
++python3
+diff --git a/config/hooks/normal/1100-zeros-locale.hook.chroot b/config/hooks/normal/1100-zeros-locale.hook.chroot
+new file mode 100755
+index 0000000..c1508ea
+--- /dev/null
++++ b/config/hooks/normal/1100-zeros-locale.hook.chroot
+@@ -0,0 +1,4 @@
++#!/bin/sh
++set -eu
++# Standard 1020 reset runs first. Keep all vendor hooks byte-for-byte intact.
++python3 /usr/lib/zeros/live_profile.py locale
+diff --git a/config/includes.chroot/usr/lib/zeros/live_profile.py b/config/includes.chroot/usr/lib/zeros/live_profile.py
+new file mode 100644
+index 0000000..292a6fc
+--- /dev/null
++++ b/config/includes.chroot/usr/lib/zeros/live_profile.py
+@@ -0,0 +1,56 @@
++#!/usr/bin/env python3
++"""Build-time profile setup; run inside the target chroot, never on the host."""
++import argparse
++from pathlib import Path
++import re
++import subprocess
++
++
++def configure_locale(root, run):
++    """root/run are explicit test seams; the CLI always uses the chroot root."""
++    path = root / 'etc/locale.gen'
++    lines = path.read_text().splitlines() if path.exists() else []
++    lines = [line for line in lines
++             if not re.fullmatch(r'\s*#?\s*az_AZ\.UTF-8\s+UTF-8\s*', line)]
++    path.write_text('\n'.join([*lines, 'az_AZ.UTF-8 UTF-8']) + '\n')
++    run(['locale-gen'], check=True)
++    # No global LC_ALL: preserve the ability to override individual categories.
++    (root / 'etc/default/locale').write_text('LANG=az_AZ.UTF-8\nLANGUAGE=az:en\n')
++
++
++def configure_accounts(root, run):
++    entries = {line.split(':', 1)[0]: line.split(':')
++               for line in (root / 'etc/passwd').read_text().splitlines() if line}
++    # Fail closed if a fresh build unexpectedly contains a live sudo grant.
++    live_sudo = root / 'etc/sudoers.d/live'
++    if live_sudo.exists() and live_sudo.read_text().strip():
++        raise RuntimeError('Unexpected live sudoers grant; review the image inputs')
++    if 'root' not in entries or entries['root'][2] != '0':
++        raise RuntimeError('Expected root account missing')
++    if 'zeros' in entries:
++        if entries['zeros'][2] != '1000':
++            raise RuntimeError('Unexpected zeros UID; refusing to repurpose an account')
++    else:
++        if any(entry[2] == '1000' for entry in entries.values()):
++            raise RuntimeError('UID 1000 already belongs to another account')
++        run(['useradd', '--uid', '1000', '--user-group', '--create-home',
++             '--shell', '/bin/bash', '--password', '!', 'zeros'], check=True)
++    # Replace hashes, rather than prefixing ! onto a reusable known password hash.
++    run(['usermod', '--password', '!', 'zeros'], check=True)
++    run(['usermod', '--gid', 'zeros', '--groups', '', 'zeros'], check=True)
++    run(['usermod', '--password', '!', 'root'], check=True)
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('action', choices=['locale', 'accounts'])
++    args = parser.parse_args()
++    # This marker is exposed only by live-build during chroot hook execution.
++    if not Path('/live-build/config').is_dir():
++        parser.error('Run only in a live-build target chroot')
++    action = configure_locale if args.action == 'locale' else configure_accounts
++    action(Path('/'), subprocess.run)
++
++
++if __name__ == '__main__':
++    main()
+diff --git a/config/includes.chroot/etc/polkit-1/rules.d/00-zeros-live.rules b/config/includes.chroot/etc/polkit-1/rules.d/00-zeros-live.rules
+new file mode 100644
+index 0000000..da6e19b
+--- /dev/null
++++ b/config/includes.chroot/etc/polkit-1/rules.d/00-zeros-live.rules
+@@ -0,0 +1,8 @@
++// Restricted internal Alpha: no PolicyKit elevation/implicit active-seat grants.
++// This deliberately also blocks Wi-Fi configuration, mounting and power actions
++// that require PolicyKit. Validate required desktop flows before any release.
++polkit.addRule(function(action, subject) {
++    if (subject.user === "zeros") {
++        return polkit.Result.NO;
++    }
++});
+diff --git a/config/includes.chroot/etc/dconf/db/local.d/02-live-session b/config/includes.chroot/etc/dconf/db/local.d/02-live-session
+new file mode 100644
+index 0000000..61f286a
+--- /dev/null
++++ b/config/includes.chroot/etc/dconf/db/local.d/02-live-session
+@@ -0,0 +1,6 @@
++# Password-locked disposable session: avoid an automatic, unrecoverable lock.
++[org/gnome/desktop/screensaver]
++lock-enabled=false
++
++[org/gnome/desktop/session]
++idle-delay=uint32 0
+diff --git a/tests/test_live_profile.py b/tests/test_live_profile.py
+new file mode 100644
+index 0000000..3d28256
+--- /dev/null
++++ b/tests/test_live_profile.py
+@@ -0,0 +1,136 @@
++"""Fixture-only tests: no real account, locale or privilege commands execute."""
++import importlib.util
++from pathlib import Path
++import subprocess
++import tempfile
++import unittest
++from unittest.mock import Mock, patch
++
++ROOT = Path(__file__).resolve().parents[1]
++HELPER = ROOT / 'config/includes.chroot/usr/lib/zeros/live_profile.py'
++spec = importlib.util.spec_from_file_location('live_profile', HELPER)
++profile = importlib.util.module_from_spec(spec)
++spec.loader.exec_module(profile)
++
++
++class ProfileTests(unittest.TestCase):
++    def setUp(self):
++        self.tmp = tempfile.TemporaryDirectory()
++        self.addCleanup(self.tmp.cleanup)
++        self.root = Path(self.tmp.name)
++        (self.root / 'etc/default').mkdir(parents=True)
++        (self.root / 'etc/passwd').write_text('root:x:0:0:root:/root:/bin/bash\n')
++
++    def test_cli_refuses_host_execution_without_build_marker(self):
++        with patch('sys.argv', ['live_profile.py', 'accounts']), patch.object(profile.Path, 'is_dir', return_value=False), patch.object(profile, 'configure_accounts') as configure:
++            with self.assertRaises(SystemExit) as result:
++                profile.main()
++            self.assertEqual(result.exception.code, 2)
++            configure.assert_not_called()
++
++    def test_locale_overrides_standard_reset_idempotently(self):
++        (self.root / 'etc/default/locale').write_text('LANG=C.UTF-8\nLC_ALL=C\n')
++        (self.root / 'etc/locale.gen').write_text('# az_AZ.UTF-8 UTF-8\nen_US.UTF-8 UTF-8\naz_AZ.UTF-8 UTF-8\n')
++        run = Mock()
++        profile.configure_locale(self.root, run)
++        before = (self.root / 'etc/locale.gen').read_bytes()
++        profile.configure_locale(self.root, run)
++        self.assertEqual(before, (self.root / 'etc/locale.gen').read_bytes())
++        self.assertEqual(before.count(b'az_AZ.UTF-8 UTF-8'), 1)
++        self.assertIn(b'en_US.UTF-8 UTF-8', before)
++        self.assertEqual((self.root / 'etc/default/locale').read_text(),
++                         'LANG=az_AZ.UTF-8\nLANGUAGE=az:en\n')
++        run.assert_called_with(['locale-gen'], check=True)
++
++    def test_locale_generator_failure_propagates(self):
++        with self.assertRaises(subprocess.CalledProcessError):
++            profile.configure_locale(self.root, Mock(side_effect=subprocess.CalledProcessError(1, 'locale-gen')))
++
++    def test_locale_hook_runs_after_vendor_reset(self):
++        names = sorted(p.name for p in (ROOT / 'config/hooks/normal').glob('*'))
++        self.assertNotIn('0006-locale.hook.chroot', names)
++        self.assertGreater(names.index('1100-zeros-locale.hook.chroot'),
++                           names.index('1020-create-locales-files.hook.chroot'))
++
++    def test_new_account_has_no_usable_password_or_admin_groups(self):
++        run = Mock()
++        profile.configure_accounts(self.root, run)
++        commands = [c.args[0] for c in run.call_args_list]
++        self.assertIn(['useradd', '--uid', '1000', '--user-group', '--create-home',
++                       '--shell', '/bin/bash', '--password', '!', 'zeros'], commands)
++        self.assertIn(['usermod', '--password', '!', 'zeros'], commands)
++        self.assertIn(['usermod', '--password', '!', 'root'], commands)
++        self.assertIn(['usermod', '--gid', 'zeros', '--groups', '', 'zeros'], commands)
++        self.assertNotIn('chpasswd', str(commands))
++        self.assertNotIn('zeros:zeros', str(commands))
++
++    def test_existing_account_is_restricted_without_recreating(self):
++        with (self.root / 'etc/passwd').open('a') as f:
++            f.write('zeros:x:1000:1000::/home/zeros:/bin/bash\n')
++        run = Mock()
++        profile.configure_accounts(self.root, run)
++        self.assertFalse(any(c.args[0][0] == 'useradd' for c in run.call_args_list))
++        self.assertIn(['usermod', '--password', '!', 'zeros'], [c.args[0] for c in run.call_args_list])
++
++    def test_uid_collision_fails_before_account_commands(self):
++        with (self.root / 'etc/passwd').open('a') as f:
++            f.write('other:x:1000:1000::/home/other:/bin/bash\n')
++        run = Mock()
++        with self.assertRaisesRegex(RuntimeError, 'UID 1000'):
++            profile.configure_accounts(self.root, run)
++        run.assert_not_called()
++
++    def test_unexpected_zeros_uid_rejected(self):
++        with (self.root / 'etc/passwd').open('a') as f:
++            f.write('zeros:x:0:0::/root:/bin/bash\n')
++        run = Mock()
++        with self.assertRaisesRegex(RuntimeError, 'Unexpected zeros UID'):
++            profile.configure_accounts(self.root, run)
++        run.assert_not_called()
++
++    def test_unexpected_live_sudo_grant_fails_build(self):
++        (self.root / 'etc/sudoers.d').mkdir()
++        (self.root / 'etc/sudoers.d/live').write_text('zeros ALL=(ALL) NOPASSWD: ALL\n')
++        with self.assertRaisesRegex(RuntimeError, 'Unexpected live sudoers'):
++            profile.configure_accounts(self.root, Mock())
++
++    def test_account_command_failure_stops(self):
++        run = Mock(side_effect=subprocess.CalledProcessError(1, 'useradd'))
++        with self.assertRaises(subprocess.CalledProcessError):
++            profile.configure_accounts(self.root, run)
++        self.assertEqual(run.call_count, 1)
++
++    def test_boot_profiles_share_security_policy(self):
++        script = ROOT / 'auto/config'
++        # Capture arguments instead of invoking lb/config or touching system config.
++        bin_dir = self.root / 'bin'
++        bin_dir.mkdir()
++        lb = bin_dir / 'lb'
++        lb.write_text('#!/bin/sh\nprintf "%s\\n" "$@"\n')
++        lb.chmod(0o755)
++        result = subprocess.run(['/bin/sh', str(script)], env={'PATH': str(bin_dir)},
++                                capture_output=True, text=True, check=True)
++        args = result.stdout.splitlines()
++        normal = args[args.index('--bootappend-live') + 1].split()
++        failsafe = args[args.index('--bootappend-live-failsafe') + 1].split()
++        for arg in ('username=zeros', 'noroot', 'nottyautologin', 'locales=az_AZ.UTF-8',
++                    'keyboard-layouts=az,us',
++                    'live-config.nocomponents=user-setup,live-debconfig_passwd,sudo,locales,policykit,gdm3,xinit'):
++            self.assertIn(arg, normal)
++            self.assertIn(arg, failsafe)
++        self.assertNotIn('persistence', normal)
++
++    def test_profile_has_graphical_only_autologin_and_polkit_deny(self):
++        config = (ROOT / 'config/includes.chroot/etc/gdm3/daemon.conf').read_text()
++        self.assertIn('WaylandEnable=false\n', config)
++        self.assertIn('AutomaticLogin=zeros', config)
++        self.assertIn('AutomaticLoginEnable=true', config)
++        self.assertIn('TimedLoginEnable=false', config)
++        rule = (ROOT / 'config/includes.chroot/etc/polkit-1/rules.d/00-zeros-live.rules').read_text()
++        self.assertIn('subject.user === "zeros"', rule)
++        self.assertIn('return polkit.Result.NO;', rule)
++        self.assertNotIn('polkit.Result.YES', rule)
++
++
++if __name__ == '__main__':
++    unittest.main()

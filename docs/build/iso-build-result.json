@@ -1,0 +1,19 @@
+{
+  "status": "BLOCKED_NO_ISOLATED_DEBIAN_13_ENVIRONMENT",
+  "iso_created": false,
+  "iso_path": null,
+  "iso_bytes": null,
+  "iso_sha256": null,
+  "host": "Kali GNU/Linux Rolling",
+  "docker_endpoint": "unix:///var/run/docker.sock",
+  "docker_server_os": "Kali GNU/Linux Rolling",
+  "docker_running_containers": 0,
+  "static_preflight": "PASS",
+  "unit_tests": "18/18 PASS",
+  "environment_check": "FAIL: Missing build dependency: xorriso",
+  "builder_image": "NOT_STARTED",
+  "mount_chroot_smoke": "NOT_STARTED",
+  "iso_build": "NOT_STARTED",
+  "disk_available_note": "329 GiB available on repository filesystem; deletion not required",
+  "public_release": false
+}

@@ -2,9 +2,9 @@
 
 > ⚠️ This project is currently under active development. Not ready for production use.
 
-**zerOS** — [live-build](https://manpages.debian.org/live-build/) vasitəsilə **Debian Bookworm (12)** əsasında qurulmuş Linux distributividir. GNOME masaüstü mühiti, xüsusi dark tema, Azərbaycan dili (Azərbaycanca) lokalizasiyası və fərdi Plymouth boot animasiyası ilə gəlir.
+**zerOS** — [live-build](https://manpages.debian.org/live-build/) vasitəsilə **Debian Trixie (13)** əsasında qurulmuş Linux distributividir. GNOME masaüstü mühiti, xüsusi dark tema, Azərbaycan dili (Azərbaycanca) lokalizasiyası və fərdi Plymouth boot animasiyası ilə gəlir.
 
-**zerOS** is a Linux distribution built on top of **Debian Bookworm (12)** using `live-build`. It ships with the GNOME desktop, a custom dark theme, Azerbaijani localization, and a custom Plymouth boot theme.
+**zerOS** is a Linux distribution built on top of **Debian Trixie (13)** using `live-build`. It ships with the GNOME desktop, a custom dark theme, Azerbaijani localization, and a custom Plymouth boot theme.
 
 ## Features
 
@@ -16,23 +16,24 @@
 
 ## Build
 
-Tələblər: Debian-based sistem, root icazəsi və `live-build` paketi.
+Build bazası: Debian 13 Trixie/amd64. Build yalnız disposable Debian VM-də hazırlanmış pinned mühitdə aparılır.
+
+[VM hazırlıq proseduru](docs/build/vm-preparation.md). ISO build üçün ayrıca başlanğıc göstərişi tələb olunur.
 
 ```bash
-sudo apt install live-build debootstrap
-sudo bash scripts/build.sh
+bash scripts/build.sh --preflight
 ```
 
-Nəticə fayl: `live-image-amd64.hybrid.iso`
+Bu əmr yalnız statik preflight aparır, ISO yaratmır. Gələcək build nəticələri ayrıca `/tmp/zeros-build-...` sahəsində saxlanılır.
 
 ## Default istifadəçi
 
 | Sahə | Dəyər |
 |------|-------|
 | username | `zeros` |
-| password | `zeros` |
+| password | Parol girişi kilidlidir; yalnız qrafik autologin nəzərdə tutulur |
 
-> İstifadəçi `sudo` qrupundadır.
+> Məhdud daxili Alpha profili: istifadəçi sudo/adm qruplarında deyil; PolicyKit sorğuları rədd edilir. Wi-Fi, disk və power əməliyyatları məhdudlaşa bilər. GDM/PAM və boot uyğunluğu hələ test edilməyib.
 
 ## Layihə strukturu
 

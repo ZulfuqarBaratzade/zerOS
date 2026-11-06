@@ -1,0 +1,83 @@
+Portable patch applies to clean Day03 archive; temporary Git metadata initialized for foundation preflight: 18/18 PASS
+test_build_stops_on_failed_environment_gate (test_build_foundation.FoundationTests.test_build_stops_on_failed_environment_gate) ... ok
+test_default_never_starts_build (test_build_foundation.FoundationTests.test_default_never_starts_build) ... ok
+test_environment_rejects_missing_dependency (test_build_foundation.FoundationTests.test_environment_rejects_missing_dependency) ... ok
+test_local_hooks_match_lock (test_build_foundation.FoundationTests.test_local_hooks_match_lock) ... ok
+test_modified_hook_rejected_before_build (test_build_foundation.FoundationTests.test_modified_hook_rejected_before_build) ... ok
+test_pins_match_environment_recipe (test_build_foundation.FoundationTests.test_pins_match_environment_recipe) ... ok
+test_account_command_failure_stops (test_live_profile.ProfileTests.test_account_command_failure_stops) ... ok
+test_boot_profiles_share_security_policy (test_live_profile.ProfileTests.test_boot_profiles_share_security_policy) ... ok
+test_cli_refuses_host_execution_without_build_marker (test_live_profile.ProfileTests.test_cli_refuses_host_execution_without_build_marker) ... usage: live_profile.py [-h] {locale,accounts}
+live_profile.py: error: Run only in a live-build target chroot
+ok
+test_existing_account_is_restricted_without_recreating (test_live_profile.ProfileTests.test_existing_account_is_restricted_without_recreating) ... ok
+test_locale_generator_failure_propagates (test_live_profile.ProfileTests.test_locale_generator_failure_propagates) ... ok
+test_locale_hook_runs_after_vendor_reset (test_live_profile.ProfileTests.test_locale_hook_runs_after_vendor_reset) ... ok
+test_locale_overrides_standard_reset_idempotently (test_live_profile.ProfileTests.test_locale_overrides_standard_reset_idempotently) ... ok
+test_new_account_has_no_usable_password_or_admin_groups (test_live_profile.ProfileTests.test_new_account_has_no_usable_password_or_admin_groups) ... ok
+test_profile_has_graphical_only_autologin_and_polkit_deny (test_live_profile.ProfileTests.test_profile_has_graphical_only_autologin_and_polkit_deny) ... ok
+test_uid_collision_fails_before_account_commands (test_live_profile.ProfileTests.test_uid_collision_fails_before_account_commands) ... ok
+test_unexpected_live_sudo_grant_fails_build (test_live_profile.ProfileTests.test_unexpected_live_sudo_grant_fails_build) ... ok
+test_unexpected_zeros_uid_rejected (test_live_profile.ProfileTests.test_unexpected_zeros_uid_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.089s
+
+OK
+
+
+$ python3 -B -m unittest discover -s tests -v
+exit=0
+test_build_stops_on_failed_environment_gate (test_build_foundation.FoundationTests.test_build_stops_on_failed_environment_gate) ... ok
+test_default_never_starts_build (test_build_foundation.FoundationTests.test_default_never_starts_build) ... ok
+test_environment_rejects_missing_dependency (test_build_foundation.FoundationTests.test_environment_rejects_missing_dependency) ... ok
+test_local_hooks_match_lock (test_build_foundation.FoundationTests.test_local_hooks_match_lock) ... ok
+test_modified_hook_rejected_before_build (test_build_foundation.FoundationTests.test_modified_hook_rejected_before_build) ... ok
+test_pins_match_environment_recipe (test_build_foundation.FoundationTests.test_pins_match_environment_recipe) ... ok
+test_account_command_failure_stops (test_live_profile.ProfileTests.test_account_command_failure_stops) ... ok
+test_boot_profiles_share_security_policy (test_live_profile.ProfileTests.test_boot_profiles_share_security_policy) ... ok
+test_cli_refuses_host_execution_without_build_marker (test_live_profile.ProfileTests.test_cli_refuses_host_execution_without_build_marker) ... usage: live_profile.py [-h] {locale,accounts}
+live_profile.py: error: Run only in a live-build target chroot
+ok
+test_existing_account_is_restricted_without_recreating (test_live_profile.ProfileTests.test_existing_account_is_restricted_without_recreating) ... ok
+test_locale_generator_failure_propagates (test_live_profile.ProfileTests.test_locale_generator_failure_propagates) ... ok
+test_locale_hook_runs_after_vendor_reset (test_live_profile.ProfileTests.test_locale_hook_runs_after_vendor_reset) ... ok
+test_locale_overrides_standard_reset_idempotently (test_live_profile.ProfileTests.test_locale_overrides_standard_reset_idempotently) ... ok
+test_new_account_has_no_usable_password_or_admin_groups (test_live_profile.ProfileTests.test_new_account_has_no_usable_password_or_admin_groups) ... ok
+test_profile_has_graphical_only_autologin_and_polkit_deny (test_live_profile.ProfileTests.test_profile_has_graphical_only_autologin_and_polkit_deny) ... ok
+test_uid_collision_fails_before_account_commands (test_live_profile.ProfileTests.test_uid_collision_fails_before_account_commands) ... ok
+test_unexpected_live_sudo_grant_fails_build (test_live_profile.ProfileTests.test_unexpected_live_sudo_grant_fails_build) ... ok
+test_unexpected_zeros_uid_rejected (test_live_profile.ProfileTests.test_unexpected_zeros_uid_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.146s
+
+OK
+
+
+$ bash scripts/build.sh --preflight
+exit=0
+Preflight OK (static only)
+
+
+$ bash /home/baratzade/Desktop/zerOS/scripts/build.sh --preflight
+exit=0
+Preflight OK (static only)
+
+
+$ bash scripts/build.sh --check-environment
+exit=1
+ERROR: Missing build dependency: xorriso
+
+
+33 shell syntax checks: PASS
+
+Python in-memory compile: PASS
+
+26 vendor hooks unchanged: PASS
+
+Old ISO/artifact sizes and mtimes unchanged: PASS
+
+Prior user changes and Day01/02 documents unchanged: PASS
+
+VM procedure bash syntax: PASS (not executed)

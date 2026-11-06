@@ -1,0 +1,41 @@
+$ bash scripts/build.sh --preflight
+exit=0
+Preflight OK (static only)
+
+
+$ bash /home/baratzade/Desktop/zerOS/scripts/build.sh --preflight
+exit=0
+Preflight OK (static only)
+
+
+$ bash scripts/build.sh --check-environment
+exit=1
+ERROR: Missing build dependency: xorriso
+
+
+$ python3 -B -m unittest discover -s tests -v
+exit=0
+test_build_stops_on_failed_environment_gate (test_build_foundation.FoundationTests.test_build_stops_on_failed_environment_gate) ... ok
+test_default_never_starts_build (test_build_foundation.FoundationTests.test_default_never_starts_build) ... ok
+test_environment_rejects_missing_dependency (test_build_foundation.FoundationTests.test_environment_rejects_missing_dependency) ... ok
+test_local_hooks_match_lock (test_build_foundation.FoundationTests.test_local_hooks_match_lock) ... ok
+test_modified_hook_rejected_before_build (test_build_foundation.FoundationTests.test_modified_hook_rejected_before_build) ... ok
+test_pins_match_environment_recipe (test_build_foundation.FoundationTests.test_pins_match_environment_recipe) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.093s
+
+OK
+
+
+33 bash -n checks: PASS
+
+Python compile in memory: PASS
+
+9 documented bash blocks: syntax PASS (NOT executed)
+
+Existing artifact sizes/mtimes: unchanged
+
+Excluded user changes and Day01/02 document hashes: unchanged
+
+26 vendor hook SHA256: PASS

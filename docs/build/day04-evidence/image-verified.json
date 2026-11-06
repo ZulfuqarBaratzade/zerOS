@@ -1,0 +1,9 @@
+{
+  "repository": "docker.io/library/debian",
+  "tag": "trixie",
+  "index_digest": "sha256:9c6e381421d0f48d1b8133e573f33c185ee16cbf505eda9c4a8a4791b25ea8a6",
+  "amd64_digest": "sha256:bfc36aecdece0387418759dba474aa856c026ca8087da3606b41b90ab0509c99",
+  "config_digest": "sha256:51e269e6af18ae477f7880a0820f34863e34366c621d93b0dd939260ea62e59b",
+  "architecture": "amd64",
+  "os": "linux"
+}

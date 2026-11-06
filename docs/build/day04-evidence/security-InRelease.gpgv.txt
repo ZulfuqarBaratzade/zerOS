@@ -1,0 +1,6 @@
+gpgv: Signature made Thu Nov  5 22:22:30 2026 +04
+gpgv:                using RSA key B0CAB9266E8C3929798B3EEEBDE6D2B9216EC7A8
+gpgv: Good signature from "Debian Security Archive Automatic Signing Key (12/bookworm) <ftpmaster@debian.org>"
+gpgv: Signature made Thu Nov  5 22:22:30 2026 +04
+gpgv:                using RSA key 89C87ACEA5DD6B8E6A7068808E9F831205B4BA95
+gpgv: Good signature from "Debian Security Archive Automatic Signing Key (13/trixie) <ftpmaster@debian.org>"

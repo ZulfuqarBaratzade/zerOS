@@ -1,0 +1,45 @@
+{
+  "index_sha256": "7778d3e3f303b7ddb8ce0fe7c8d57473a076c6bf2e8f241f75421d2396352498",
+  "packages": [
+    {
+      "Package": "debootstrap",
+      "Version": "1.0.141",
+      "Installed-Size": "325",
+      "Maintainer": "Debian Install System Team <debian-boot@lists.debian.org>",
+      "Architecture": "all",
+      "Depends": "wget, distro-info",
+      "Recommends": "sopv | sqv | gpgv, mount, debian-archive-keyring, arch-test (>= 0.11~)",
+      "Suggests": "squid-deb-proxy-client, ubuntu-archive-keyring, binutils, xz-utils, zstd",
+      "Description": "Bootstrap a basic Debian system",
+      "Multi-Arch": "foreign",
+      "Description-md5": "883a8efb3ed16248b0d2091d9c0b60c9",
+      "Tag": "admin::virtualization, devel::debian, implemented-in::python,",
+      "Section": "admin",
+      "Priority": "optional",
+      "Filename": "pool/main/d/debootstrap/debootstrap_1.0.141_all.deb",
+      "Size": "50094",
+      "MD5sum": "685dac752f9c28a630a60dbbad420b6f",
+      "SHA256": "8c02cb8ad712eb67afb0d23fab175c562804cc97eda70b70cb0f3bc2a21732d7"
+    },
+    {
+      "Package": "live-build",
+      "Version": "1:20250505+deb13u1",
+      "Installed-Size": "787",
+      "Maintainer": "Debian Live <debian-live@lists.debian.org>",
+      "Architecture": "all",
+      "Depends": "cpio, debootstrap",
+      "Recommends": "apt-utils, bzip2, cryptsetup, file, live-boot-doc, live-config-doc, live-manual-html | live-manual, rsync, systemd-container, wget, xz-utils",
+      "Suggests": "e2fsprogs, eatmydata, git, mtd-utils, parted",
+      "Description": "Live System Build Components",
+      "Homepage": "https://wiki.debian.org/DebianLive",
+      "Description-md5": "72b6eb5237aa0d711a0cacb295b7a2b2",
+      "Tag": "devel::buildtools, devel::debian, implemented-in::shell,",
+      "Section": "misc",
+      "Priority": "optional",
+      "Filename": "pool/main/l/live-build/live-build_20250505+deb13u1_all.deb",
+      "Size": "204276",
+      "MD5sum": "dfe62ebbdeaabc52a03765ad157ac478",
+      "SHA256": "58e09779881cbcc631c49ceb703413e0247a87db01823e597b2a1c40a2afd8f4"
+    }
+  ]
+}

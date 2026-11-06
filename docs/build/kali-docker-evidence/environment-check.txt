@@ -1,0 +1,3 @@
+$ docker --context default run --rm --read-only --user 65534:65534 --cap-drop=ALL --security-opt=no-new-privileges --network=none --pids-limit=128 --memory=512m --tmpfs /tmp:rw,nosuid,nodev,size=64m --mount type=bind,src=/home/baratzade/Desktop/zerOS,dst=/src,readonly sha256:d1bab47128ad1679d1ed00f032c4dedc0517b506913dd823f3b4eb3d689c0789 --check-environment
+Builder userspace: Debian trixie / amd64 (Docker)
+Preflight OK (environment)

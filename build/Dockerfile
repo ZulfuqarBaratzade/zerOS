@@ -1,4 +1,5 @@
-# Build/run ONLY in a disposable VM: live-build requires mount/chroot privileges.
+# Debian userspace builder on a Linux Docker host.
+# Image preparation/checks need no privileged run; ISO builds require separate approval.
 # Caller must supply a verified debian:trixie@sha256:... reference.
 ARG BASE_IMAGE
 FROM ${BASE_IMAGE}

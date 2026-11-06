@@ -1,0 +1,9 @@
+{
+  "action": "check",
+  "state": "passed",
+  "iso_build_started": false,
+  "host_os": "Linux",
+  "docker_os": "Kali GNU/Linux Rolling",
+  "context": "default",
+  "builder_id": "sha256:d1bab47128ad1679d1ed00f032c4dedc0517b506913dd823f3b4eb3d689c0789"
+}

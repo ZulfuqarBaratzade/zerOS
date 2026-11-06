@@ -16,9 +16,9 @@
 
 ## Build
 
-Build bazası: Debian 13 Trixie/amd64. Build yalnız disposable Debian VM-də hazırlanmış pinned mühitdə aparılır.
+Build bazası: Debian 13 Trixie/amd64. Kali daxil olmaqla Linux/amd64 hostda pinned Debian 13 Docker builder istifadə olunur. Image/environment yoxlamaları privilegesizdir; ISO build üçün ayrıca privilege təsdiqi tələb olunur.
 
-[VM hazırlıq proseduru](docs/build/vm-preparation.md). ISO build üçün ayrıca başlanğıc göstərişi tələb olunur.
+[Kali + Docker workflow](docs/build/kali-docker-workflow.md). Əvvəlki VM proseduru alternativ izolyasiya seçimidir.
 
 ```bash
 bash scripts/build.sh --preflight

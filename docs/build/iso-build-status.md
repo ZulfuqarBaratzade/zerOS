@@ -1,5 +1,7 @@
 # Daxili Trixie ISO build statusu
 
+> Tarixi nəticədir. Sonrakı [Kali + Docker yoxlaması](kali-docker-workflow.md) image/environment hazırlığını uğurla tamamlayıb; ISO build yenə aparılmayıb.
+
 Tarix: 2026-11-06. **BLOCKED: uyğun izolə Debian 13 build mühiti yoxdur.**
 
 Yeni ISO yaradılmayıb: path, ölçü və SHA256 mövcud deyil. `zerOS-Trixie-Alpha.iso` adı altında köhnə ISO kopyalanmayıb və uğur iddiası verilməyib.

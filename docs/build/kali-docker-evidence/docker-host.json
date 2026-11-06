@@ -1,0 +1,14 @@
+{
+  "OperatingSystem": "Kali GNU/Linux Rolling",
+  "OSType": "linux",
+  "Architecture": "x86_64",
+  "ServerVersion": "28.5.2+dfsg4",
+  "KernelVersion": "7.1.5+kali-amd64",
+  "SecurityOptions": [
+    "name=apparmor",
+    "name=seccomp,profile=builtin",
+    "name=cgroupns"
+  ],
+  "CgroupVersion": "2",
+  "Driver": "overlay2"
+}

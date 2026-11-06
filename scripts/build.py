@@ -50,20 +50,22 @@ def preflight(environment=False):
                        if '=' in line)
         require(release.get('ID', '').strip('"') == 'debian' and
                 release.get('VERSION_CODENAME', '').strip('"') == lock['suite'],
-                'Build environment must be Debian Trixie (use a disposable VM)')
+                'Builder userspace must be Debian Trixie; host OS is checked separately')
         require(run('dpkg', '--print-architecture') == lock['architecture'], 'Expected amd64 environment')
+        require(Path('/.dockerenv').is_file(), 'Run the environment check inside the Docker builder')
         require(Path('/etc/zeros-build-environment').is_file(), 'Missing isolated-environment marker')
         require(Path('/opt/zeros/versions.json').read_bytes() == (ROOT / 'build/versions.json').read_bytes(),
                 'Environment lock differs from repository; rebuild the environment')
         for package, version in lock['packages'].items():
             actual = run('dpkg-query', '-W', '-f=${Version}', package)
             require(actual == version, f'{package}: expected {version}, found {actual}')
+        print(f"Builder userspace: Debian {lock['suite']} / {lock['architecture']} (Docker)", flush=True)
     print('Preflight OK' + (' (environment)' if environment else ' (static only)'), flush=True)
     return lock
 
 
 def build(lock):
-    require(os.geteuid() == 0, 'Build needs root inside the disposable build VM; preflight does not')
+    require(os.geteuid() == 0, 'Build needs root inside the approved Docker builder; preflight does not')
     # Never clean, build in, or overwrite the source checkout or its old ISO.
     output = Path(tempfile.mkdtemp(prefix='zeros-build-'))
     work = output / 'work'
@@ -144,10 +146,14 @@ def main():
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--preflight', action='store_true', help='Static read-only checks (default)')
     mode.add_argument('--check-environment', action='store_true', help='Also check isolated toolchain; no build')
-    mode.add_argument('--build', action='store_true', help='Explicit full build inside prepared disposable VM')
+    mode.add_argument('--build', action='store_true', help='Full build inside approved Docker builder (requires explicit acknowledgement)')
+    parser.add_argument('--allow-container-build', action='store_true',
+                        help='Acknowledge a separately approved container build; grants no capabilities')
     args = parser.parse_args()
     lock = preflight(args.check_environment or args.build)
     if args.build:
+        require(args.allow_container_build,
+                'Container build needs separate approval and --allow-container-build')
         build(lock)
 
 

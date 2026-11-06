@@ -1,0 +1,8 @@
+// Restricted internal Alpha: no PolicyKit elevation/implicit active-seat grants.
+// This deliberately also blocks Wi-Fi configuration, mounting and power actions
+// that require PolicyKit. Validate required desktop flows before any release.
+polkit.addRule(function(action, subject) {
+    if (subject.user === "zeros") {
+        return polkit.Result.NO;
+    }
+});

@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+# Standard 1020 reset runs first. Keep all vendor hooks byte-for-byte intact.
+python3 /usr/lib/zeros/live_profile.py locale

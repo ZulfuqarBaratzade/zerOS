@@ -1,8 +1,4 @@
-#!/bin/bash
-set -e
-
-# zerOS default user
-if ! id -u zeros >/dev/null 2>&1; then
-    useradd -m -s /bin/bash -G sudo,adm,video,audio,cdrom,plugdev,netdev,users zeros
-fi
-echo "zeros:zeros" | chpasswd
+#!/bin/sh
+set -eu
+# Disposable live user: locked password, no supplemental/admin groups.
+python3 /usr/lib/zeros/live_profile.py accounts

@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# One identity/security/locale policy shared by normal and failsafe boot entries.
+LIVE_POLICY="boot=live components username=zeros noroot nottyautologin locales=az_AZ.UTF-8 keyboard-layouts=az,us live-config.nocomponents=user-setup,live-debconfig_passwd,sudo,locales,policykit,gdm3,xinit"
+
 lb config noauto \
     --mode debian \
     --distribution trixie \
@@ -10,5 +13,6 @@ lb config noauto \
     --bootloaders "syslinux grub-efi" \
     --debian-installer none \
     --memtest none \
-    --bootappend-live "boot=live components locales=az_AZ.UTF-8 keyboard-layouts=az,us quiet splash" \
+    --bootappend-live "$LIVE_POLICY quiet splash" \
+    --bootappend-live-failsafe "$LIVE_POLICY noapic noapm nodma nomce nosmp nosplash vga=788" \
     "${@}"

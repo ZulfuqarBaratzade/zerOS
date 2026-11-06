@@ -1,0 +1,6 @@
+# Password-locked disposable session: avoid an automatic, unrecoverable lock.
+[org/gnome/desktop/screensaver]
+lock-enabled=false
+
+[org/gnome/desktop/session]
+idle-delay=uint32 0

@@ -1,0 +1,14 @@
+before_exists False
+scratch_mounts_before
+503 461 0:82 / /scratch rw,nosuid,nodev,noexec,relatime - tmpfs tmpfs rw,size=16384k,inode64
+probe_created True is_symlink False is_mount False
+probe_exact_mountinfo []
+security_status
+CapEff:	0000000000000000
+CapBnd:	0000000000000000
+NoNewPrivs:	1
+Seccomp:	2
+lsm docker-default (enforce)
+fake_mount_exit 0 stdout  stderr 
+probe_after_fake_is_mount False
+No real mount/chroot syscall was requested

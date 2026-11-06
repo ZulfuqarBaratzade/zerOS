@@ -1,0 +1,23 @@
+{
+  "host": {
+    "exit_code": 0,
+    "stdout": "PRETTY_NAME=\"Kali GNU/Linux Rolling\"\nNAME=\"Kali GNU/Linux\"\nVERSION_ID=\"2026.3\"\nVERSION=\"2026.3\"\nVERSION_CODENAME=kali-rolling\nID=kali\nID_LIKE=debian\nHOME_URL=\"https://www.kali.org/\"\nSUPPORT_URL=\"https://forums.kali.org/\"\nBUG_REPORT_URL=\"https://bugs.kali.org/\"\nANSI_COLOR=\"1;31\"\n",
+    "stderr": ""
+  },
+  "running-vms": {
+    "exit_code": 124,
+    "stdout": "WARNING: The character device /dev/vboxdrv does not exist.\n\t Please install the virtualbox-dkms package and the appropriate\n\t headers, most likely linux-headers-.\n\n\t You will not be able to start VMs until this problem is fixed.\n",
+    "stderr": ""
+  },
+  "patch_sha256": "8934bc3daf0eda7b9d6ed07d5b05f098574afb40c793518de92b9c7b460c0281",
+  "base_commit": "bd806c3ed57c789b1826ebdcf591b5e23eed2f7f",
+  "vboxdrv_exists": false,
+  "status": "BLOCKED_VM_UNAVAILABLE",
+  "builder_image": "NOT_STARTED",
+  "environment_check": "NOT_RUN_IN_VM",
+  "mount_chroot_smoke": "NOT_STARTED",
+  "iso_build": "NOT_STARTED",
+  "new_iso_path": null,
+  "user_handoff": "User will connect/start the VM; SSH endpoint not yet supplied.",
+  "old_artifact_size_mtime": "UNCHANGED"
+}

@@ -1,0 +1,24 @@
+{
+  "iso_path": "/home/baratzade/Desktop/zerOS/artifacts/zeros-alpha-20261106t183343z/zerOS-Trixie-Alpha.iso",
+  "bytes": 1944256512,
+  "sha256": "0381f91cadebc5355fd66c494185fafc352b1221ae10a225dbeef3776255ddc6",
+  "status": "BUILD_SUCCESS_BOOT_UNTESTED",
+  "container": "zeros-alpha-20261106t183343z",
+  "volume": "zeros-alpha-20261106t183343z-work",
+  "build_directory": "/work/zeros-build-wxbch54a",
+  "source_commit": "e83d8f1c9b37aa07e5eb246092add31e5ace4d44",
+  "static_checks": {
+    "iso_bios_uefi_records": "PASS",
+    "squashfs_locale": "PASS",
+    "locked_root_and_zeros_passwords": "PASS",
+    "zeros_admin_groups_absent": "PASS",
+    "machine_id_empty": "PASS",
+    "boot": "NOT_TESTED"
+  },
+  "known_issues": [
+    "Internal experimental image only; no VirtualBox/boot test performed",
+    "Strict PolicyKit deny may restrict Wi-Fi, mounting and power operations",
+    "Partial GNOME translations; ISO volume label remains Debian trixie",
+    "mksquashfs emitted unrecognised POSIX ACL xattr prefix warnings"
+  ]
+}

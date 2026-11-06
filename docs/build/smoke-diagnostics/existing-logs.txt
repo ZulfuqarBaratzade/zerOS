@@ -1,0 +1,4 @@
+2026-11-06T18:14:08.379652296Z Builder userspace: Debian trixie / amd64 (Docker)
+2026-11-06T18:14:08.379710281Z Preflight OK (environment)
+2026-11-06T18:14:08.396515057Z mount: /scratch/probe: zeros-smoke already mounted or mount point busy.
+2026-11-06T18:14:08.396552718Z        dmesg(1) may have more information after failed mount system call.

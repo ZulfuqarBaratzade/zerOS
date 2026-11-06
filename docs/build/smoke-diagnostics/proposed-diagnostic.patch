@@ -1,0 +1,37 @@
+--- a/docs/build/review/limited-smoke.sh
++++ b/docs/build/review/limited-smoke.sh
+@@ -8,7 +8,7 @@
+ test "$(git -C "$SOURCE" rev-parse HEAD)" = "$COMMIT"
+ test -z "$(git -C "$SOURCE" status --porcelain --untracked-files=all --ignored)"
+ # No --rm: preserve the stopped container for inspection. Name conflict => stop.
+-docker --context default run --name zeros-mount-smoke-e83d8f1 \
++docker --context default run --name zeros-mount-smoke-diag-e83d8f1 \
+   --user 0:0 --read-only --network none --cgroupns private \
+   --cap-drop ALL --cap-add SYS_ADMIN --cap-add SYS_CHROOT \
+   --security-opt no-new-privileges --security-opt apparmor=docker-default \
+@@ -22,7 +22,18 @@
+     mounted=no
+     cleanup() { if [ "$mounted" = yes ]; then umount /scratch/probe; fi; }
+     trap cleanup EXIT
+-    mount -t tmpfs -o size=1m,nosuid,nodev,noexec zeros-smoke /scratch/probe
++    printf "BEFORE_MOUNT\n"
++    cat /proc/self/mountinfo
++    grep -E "^(Cap(Inh|Prm|Eff|Bnd|Amb)|NoNewPrivs|Seccomp):" /proc/self/status
++    cat /proc/self/attr/current
++    if findmnt -rn -M /scratch/probe; then
++      printf "Refusing to overmount an existing mountpoint\n" >&2
++      exit 40
++    else
++      rc=$?
++      if [ "$rc" -ne 1 ]; then exit "$rc"; fi
++    fi
++    LIBMOUNT_DEBUG=all mount -v -t tmpfs -o size=1m,nosuid,nodev,noexec zeros-smoke /scratch/probe
+     mounted=yes
+     printf "tmpfs-ok\n" > /scratch/probe/proof
+     test "$(cat /scratch/probe/proof)" = tmpfs-ok
+@@ -30,4 +41,4 @@
+     umount /scratch/probe
+     mounted=no
+     printf "SMOKE_PASS: tmpfs mount/read/write/umount + chroot\n"
+-  ' 2>&1 | tee "$REVIEW_DIR/smoke.log"
++  ' 2>&1 | tee "$REVIEW_DIR/smoke-diagnostic.log"

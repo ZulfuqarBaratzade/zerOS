@@ -1,0 +1,10 @@
+{
+  "locale": "LANG=az_AZ.UTF-8\nLANGUAGE=az:en",
+  "zeros_uid": "1000",
+  "zeros_primary_gid": "1000",
+  "zeros_password_locked": true,
+  "root_password_locked": true,
+  "zeros_supplemental_groups": [],
+  "machine_id_empty": true,
+  "gdm": "[daemon]\nWaylandEnable=false\n# Disposable live session; password authentication is locked.\nAutomaticLoginEnable=true\nAutomaticLogin=zeros\nTimedLoginEnable=false"
+}

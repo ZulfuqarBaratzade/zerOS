@@ -1,0 +1,366 @@
+Builder userspace: Debian trixie / amd64 (Docker)
+Preflight OK (environment)
+461 332 0:58 / / ro,relatime - overlay overlay rw,lowerdir=/var/lib/docker/overlay2/l/LBYW573XX2DMVD3D3ZYBWL2IB6:/var/lib/docker/overlay2/l/LJ5EYF3FSFTUDSAVO7NFDH6BMT:/var/lib/docker/overlay2/l/AL5FULDHSJDWR33BLVJREBXC7F:/var/lib/docker/overlay2/l/IUARNSGJRGSUTP4ND4XI7KOEII:/var/lib/docker/overlay2/l/MUUJ5I3R4KTY5ITQHMSO25BAII:/var/lib/docker/overlay2/l/BS3COCWFH5BSJXZAOCCAAK6Y5L,upperdir=/var/lib/docker/overlay2/d4f8ede2d716a15594f49819ca48c883a342ec10a7f71d3c9872485eca43136e/diff,workdir=/var/lib/docker/overlay2/d4f8ede2d716a15594f49819ca48c883a342ec10a7f71d3c9872485eca43136e/work
+464 461 0:77 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw
+497 461 0:78 / /dev rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+498 497 0:79 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,gid=5,mode=620,ptmxmode=666
+499 461 0:80 / /sys ro,nosuid,nodev,noexec,relatime - sysfs sysfs ro
+500 499 0:31 / /sys/fs/cgroup ro,nosuid,nodev,noexec,relatime - cgroup2 cgroup rw,nsdelegate,memory_recursiveprot,memory_hugetlb_accounting
+501 497 0:75 / /dev/mqueue rw,nosuid,nodev,noexec,relatime - mqueue mqueue rw
+502 497 0:81 / /dev/shm rw,nosuid,nodev,noexec,relatime - tmpfs shm rw,size=65536k,inode64
+503 461 0:82 / /scratch rw,nosuid,nodev,noexec,relatime - tmpfs tmpfs rw,size=16384k,inode64
+504 461 0:83 / /tmp rw,nosuid,nodev,noexec,relatime - tmpfs tmpfs rw,size=65536k,inode64
+505 461 0:45 /zeros-smoke-review-zt1_720a/source /src ro,nosuid,nodev - tmpfs tmpfs rw,size=8078328k,nr_inodes=1048576,inode64
+506 461 259:2 /var/lib/docker/containers/c1721571958d72a94dad10191282a6d81fcb59286a190ec8c787f71c442288b3/resolv.conf /etc/resolv.conf ro,relatime - ext4 /dev/nvme0n1p2 rw,errors=remount-ro
+507 461 259:2 /var/lib/docker/containers/c1721571958d72a94dad10191282a6d81fcb59286a190ec8c787f71c442288b3/hostname /etc/hostname ro,relatime - ext4 /dev/nvme0n1p2 rw,errors=remount-ro
+508 461 259:2 /var/lib/docker/containers/c1721571958d72a94dad10191282a6d81fcb59286a190ec8c787f71c442288b3/hosts /etc/hosts ro,relatime - ext4 /dev/nvme0n1p2 rw,errors=remount-ro
+333 464 0:77 /bus /proc/bus ro,nosuid,nodev,noexec,relatime - proc proc rw
+334 464 0:77 /fs /proc/fs ro,nosuid,nodev,noexec,relatime - proc proc rw
+335 464 0:77 /irq /proc/irq ro,nosuid,nodev,noexec,relatime - proc proc rw
+336 464 0:77 /sys /proc/sys ro,nosuid,nodev,noexec,relatime - proc proc rw
+337 464 0:77 /sysrq-trigger /proc/sysrq-trigger ro,nosuid,nodev,noexec,relatime - proc proc rw
+396 464 0:84 / /proc/asound ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+397 464 0:84 / /proc/acpi ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+398 464 0:78 /null /proc/interrupts rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+399 464 0:78 /null /proc/kcore rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+400 464 0:78 /null /proc/keys rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+441 464 0:78 /null /proc/timer_list rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+442 499 0:84 / /sys/firmware ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+443 499 0:84 / /sys/devices/virtual/powercap ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+444 499 0:84 / /sys/devices/system/cpu/cpu0/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+445 499 0:84 / /sys/devices/system/cpu/cpu1/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+446 499 0:84 / /sys/devices/system/cpu/cpu2/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+447 499 0:84 / /sys/devices/system/cpu/cpu3/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+448 499 0:84 / /sys/devices/system/cpu/cpu4/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+449 499 0:84 / /sys/devices/system/cpu/cpu5/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+450 499 0:84 / /sys/devices/system/cpu/cpu6/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+451 499 0:84 / /sys/devices/system/cpu/cpu7/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+CapEff:	0000000000240000
+CapBnd:	0000000000240000
+NoNewPrivs:	1
+Seccomp:	2
+docker-default (enforce)
+51: libmount:     INIT: library debug mask: 0xffffff
+51: libmount:     INIT: library version: 2.41.5
+51: libmount:     INIT:     feature: selinux
+51: libmount:     INIT:     feature: smack
+51: libmount:     INIT:     feature: btrfs
+51: libmount:     INIT:     feature: verity
+51: libmount:     INIT:     feature: namespaces
+51: libmount:     INIT:     feature: idmapping
+51: libmount:     INIT:     feature: fd-based-mount
+51: libmount:     INIT:     feature: statmount
+51: libmount:     INIT:     feature: statx
+51: libmount:     INIT:     feature: assert
+51: libmount:     INIT:     feature: debug
+Available "LIBMOUNT_DEBUG=<name>[,...]|<mask>" debug masks:
+   all      [0xffffff] : info about all subsystems
+   cache    [0x000004] : paths and tags cache
+   cxt      [0x000200] : library context (handler)
+   diff     [0x000400] : mountinfo changes tracking
+   fs       [0x000040] : FS abstraction
+   help     [0x000001] : this help
+   hook     [0x008000] : hooks functionality
+   locks    [0x000010] : mtab and utab locking
+   loop     [0x002000] : loop devices routines
+   options  [0x000008] : mount options parsing
+   optlist  [0x010000] : mount options container
+   tab      [0x000020] : fstab, mtab, mountinfo routines
+   update   [0x000080] : mtab, utab updates
+   utils    [0x000100] : misc library utils
+   monitor  [0x000800] : mount tables monitor
+   btrfs    [0x001000] : btrfs specific routines
+   verity   [0x004000] : verity specific routines
+51: libmount:      CXT: reset syscall status
+51: libmount:      CXT: reset messages
+51: libmount:      CXT: [0x55ced4e26a20]: ----> allocate 
+51: libmount:      CXT: [0x55ced4e26a20]: enabling flag 0010
+51: libmount:  OPTLIST: [0x55ced4e26b80]: alloc
+51: libmount:  OPTLIST: [0x55ced4e26b80]: registr map 0x7f4e8b64bc40
+51: libmount:  OPTLIST: [0x55ced4e26b80]: registr map 0x7f4e8b64ba40
+51: libmount:  OPTLIST: [0x55ced4e26b80]: append size=1m,nosuid,nodev,noexec
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  added size
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  added nosuid [id=0x00000002 map=0x7f4e8b64bc40]
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  added nodev [id=0x00000004 map=0x7f4e8b64bc40]
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  added noexec [id=0x00000008 map=0x7f4e8b64bc40]
+51: libmount:       FS: [0x55ced4e26ec0]: alloc
+51: libmount:      CXT: [0x55ced4e26a20]: mount: preparing
+51: libmount:      CXT: [0x55ced4e26a20]: use default optsmode
+51: libmount:  OPTLIST: [0x55ced4e26b80]: return flags 0x0000000e [map=0x7f4e8b64bc40]
+51: libmount:      CXT: [0x55ced4e26a20]: OPTSMODE (file-part): force=0, fstab=1, mtab=1
+51: libmount:      CXT: [0x55ced4e26a20]: fstab not required -- skip
+51: libmount:  OPTLIST: [0x55ced4e26b80]: merging
+51: libmount:      CXT: [0x55ced4e26a20]: mount: evaluating permissions
+51: libmount:  OPTLIST: [0x55ced4e26b80]: return flags 0x00000000 [map=0x7f4e8b64ba40]
+51: libmount:      CXT: [0x55ced4e26a20]: perms: superuser [rc=0]
+51: libmount:      CXT: [0x55ced4e26a20]: --> preparing options
+51: libmount:      CXT: [0x55ced4e26a20]: ---> stage:prep-options
+51: libmount:      CXT: [0x55ced4e26a20]: calling __selinux [first]
+51: libmount:     HOOK: [0x7f4e8b64c620]:  SELinux fix options
+51: libmount:      CXT: [0x55ced4e26a20]: calling __idmap [first]
+51: libmount:      CXT: [0x55ced4e26a20]: calling __owner [first]
+51: libmount:      CXT: [0x55ced4e26a20]: <--- stage:prep-options [rc=0 status=1]
+51: libmount:      CXT: [0x55ced4e26a20]: <-- preparing options done [rc=0]
+51: libmount:      CXT: [0x55ced4e26a20]: --> preparing source path
+51: libmount:      CXT: [0x55ced4e26a20]: srcpath 'zeros-smoke'
+51: libmount:    CACHE: [0x55ced4e27040]: alloc
+51: libmount:      CXT: [0x55ced4e26a20]: REMOUNT/BIND/MOVE/pseudo FS source: zeros-smoke
+51: libmount:      CXT: [0x55ced4e26a20]: --> preparing fstype
+51: libmount:      CXT: [0x55ced4e26a20]: FS type: tmpfs [rc=0]
+51: libmount:      CXT: [0x55ced4e26a20]: --> preparing target path
+51: libmount:    CACHE: [0x55ced4e27040]: canonicalize path /scratch/probe
+51: libmount:    CACHE: [0x55ced4e27040]: add entry [ 1] (path): /scratch/probe: /scratch/probe
+51: libmount:      CXT: [0x55ced4e26a20]: ---> stage:prep-target
+51: libmount:      CXT: [0x55ced4e26a20]: calling __mkdir [first]
+51: libmount:      CXT: [0x55ced4e26a20]: calling __subdir [first]
+51: libmount:      CXT: [0x55ced4e26a20]: <--- stage:prep-target [rc=0 status=1]
+51: libmount:      CXT: [0x55ced4e26a20]: final target '/scratch/probe' [rc=0]
+51: libmount:      CXT: [0x55ced4e26a20]: checking for helper
+51: libmount:      CXT: [0x55ced4e26a20]: /sbin/mount.tmpfs         ... not found
+51: libmount:      CXT: [0x55ced4e26a20]: /sbin/fs.d/mount.tmpfs    ... not found
+51: libmount:      CXT: [0x55ced4e26a20]: /sbin/fs/mount.tmpfs      ... not found
+51: libmount:      CXT: [0x55ced4e26a20]: ---> stage:prep
+51: libmount:      CXT: [0x55ced4e26a20]: calling __mount [first]
+51: libmount:     HOOK: [0x7f4e8b64c580]: prepare mount
+51: libmount:  OPTLIST: [0x55ced4e26b80]: return flags 0x0000000e [map=0x7f4e8b64bc40]
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  set: nosuid 0x00000002
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  set: nodev 0x00000004
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  set: noexec 0x00000008
+51: libmount:  OPTLIST: [0x55ced4e26b80]: return attrs set=0x0000000e, clr=0x00000000 
+51: libmount:     HOOK: [0x7f4e8b64c580]: initialize API fds
+51: libmount:      CXT: [0x55ced4e26a20]:  alloc '__mount' data
+51: libmount:     HOOK:  new FS 'tmpfs'
+51: libmount:     HOOK:  fsopen(tmpfs)
+51: libmount:      CXT: syscall 'fsopen' [success]
+51: libmount:      CXT: [0x55ced4e26a20]:  appending mount hook from __mount
+51: libmount:      CXT: [0x55ced4e26a20]:  appending mount hook from __mount
+51: libmount:      CXT: [0x55ced4e26a20]:  appending post-mount hook from __mount
+51: libmount:     HOOK: [0x7f4e8b64c580]: prepare mount done [rc=0]
+51: libmount:      CXT: [0x55ced4e26a20]: calling __legacy-mount [first]
+51: libmount:      CXT: [0x55ced4e26a20]: <--- stage:prep [rc=0 status=0]
+51: libmount:      CXT: [0x55ced4e26a20]: --> prepare update
+51: libmount:      CXT: [0x55ced4e26a20]: utab path initialized to: /run/mount/utab
+51: libmount:      CXT: [0x55ced4e26a20]: checking for writable tab files
+51: libmount:    UTILS: utab: /run/mount/utab
+51: libmount:    UTILS: /run/mount/utab: irregular/non-writable file
+51: libmount:      CXT: [0x55ced4e26a20]: skip update: no writable destination
+51: libmount:      CXT: [0x55ced4e26a20]: mount: do mount
+51: libmount:      CXT: [0x55ced4e26a20]: ---> stage:pre-mount
+51: libmount:      CXT: [0x55ced4e26a20]: <--- stage:pre-mount [rc=0 status=0]
+51: libmount:      CXT: reset syscall status
+51: libmount:      CXT: reset messages
+51: libmount:      CXT: [0x55ced4e26a20]: ---> stage:mount
+51: libmount:      CXT: [0x55ced4e26a20]: calling __mount [active]
+51: libmount:     HOOK: [0x7f4e8b64c580]: init FS
+51: libmount:      CXT: syscall 'fsconfig' [success]
+51: libmount:     HOOK: [0x7f4e8b64c580]:  config FS
+51: libmount:     HOOK: [0x7f4e8b64c580]:   fsconfig(name="size" value="1m")
+51: libmount:      CXT: syscall 'fsconfig' [success]
+51: libmount:     HOOK: [0x7f4e8b64c580]:  config done [rc=0]
+51: libmount:     HOOK: [0x7f4e8b64c580]: create FS
+51: libmount:      CXT: syscall 'fsconfig' [success]
+51: libmount:      CXT: syscall 'fsmount' [success]
+51: libmount:     HOOK: [0x7f4e8b64c580]: create FS done [rc=0, id=328]
+51: libmount:      CXT: [0x55ced4e26a20]: calling __mount [active]
+51: libmount:     HOOK: [0x7f4e8b64c580]: setting VFS flags
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  set: nosuid 0x00000002
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  set: nodev 0x00000004
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  set: noexec 0x00000008
+51: libmount:  OPTLIST: [0x55ced4e26b80]: return attrs set=0x0000000e, clr=0x00000000 [norec]
+51: libmount:     HOOK: [0x7f4e8b64c580]: mount_setattr(set=0x0000000e clr=0x00000000)
+51: libmount:      CXT: syscall 'mount_setattr' [success]
+51: libmount:  OPTLIST: [0x55ced4e26b80]: return attrs set=0x00000000, clr=0x00000000 [rec]
+51: libmount:      CXT: [0x55ced4e26a20]: <--- stage:mount [rc=0 status=0]
+51: libmount:      CXT: [0x55ced4e26a20]: ---> stage:post-mount
+51: libmount:      CXT: [0x55ced4e26a20]: calling __mount [active]
+51: libmount:     HOOK: [0x7f4e8b64c580]: move_mount(to=/scratch/probe)
+51: libmount:      CXT: syscall 'move_mount' [failed: Permission denied]
+51: libmount:      CXT: reset messages
+51: libmount:      CXT: [0x55ced4e26a20]: <--- stage:post-mount [rc=-13 status=-13]
+51: libmount:  OPTLIST: [0x55ced4e26b80]: return flags 0x0000000e [map=0x7f4e8b64bc40]
+51: libmount:      CXT: [0x55ced4e26a20]: write-protected source, trying RDONLY.
+51: libmount:      CXT: reset syscall status
+51: libmount:      CXT: reset messages
+51: libmount:  OPTLIST: [0x55ced4e26b80]: set 0x0000000f
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  remove nosuid
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  remove nodev
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  remove noexec
+51: libmount:  OPTLIST: [0x55ced4e26b80]: append 0x0000000f
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  added ro [id=0x00000001 map=0x7f4e8b64bc40]
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  added noexec [id=0x00000008 map=0x7f4e8b64bc40]
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  added nosuid [id=0x00000002 map=0x7f4e8b64bc40]
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  added nodev [id=0x00000004 map=0x7f4e8b64bc40]
+51: libmount:      CXT: [0x55ced4e26a20]: --> prepare update
+51: libmount:      CXT: [0x55ced4e26a20]: skip update: no writable destination
+51: libmount:      CXT: [0x55ced4e26a20]: mount: do mount
+51: libmount:      CXT: [0x55ced4e26a20]: ---> stage:pre-mount
+51: libmount:      CXT: [0x55ced4e26a20]: <--- stage:pre-mount [rc=0 status=1]
+51: libmount:      CXT: reset syscall status
+51: libmount:      CXT: reset messages
+51: libmount:      CXT: [0x55ced4e26a20]: ---> stage:mount
+51: libmount:      CXT: [0x55ced4e26a20]: calling __mount [active]
+51: libmount:     HOOK: [0x7f4e8b64c580]: init FS
+51: libmount:      CXT: syscall 'fsconfig' [success]
+51: libmount:     HOOK: [0x7f4e8b64c580]:  config FS
+51: libmount:     HOOK: [0x7f4e8b64c580]:   fsconfig(name="size" value="1m")
+51: libmount:      CXT: syscall 'fsconfig' [success]
+51: libmount:     HOOK: [0x7f4e8b64c580]:   fsconfig(name="ro" value="")
+51: libmount:      CXT: syscall 'fsconfig' [success]
+51: libmount:     HOOK: [0x7f4e8b64c580]:  config done [rc=0]
+51: libmount:     HOOK: [0x7f4e8b64c580]: create FS
+51: libmount:      CXT: syscall 'fsconfig' [failed: Device or resource busy]
+51: libmount:      CXT: reset messages
+51: libmount:     HOOK: [0x7f4e8b64c580]: create FS done [rc=-1, id=328]
+51: libmount:      CXT: [0x55ced4e26a20]: <--- stage:mount [rc=-1 status=-16]
+51: libmount:      CXT: [0x55ced4e26a20]: mnt_context_do_mount() done [rc=-1]
+51: libmount:      TAB: [0x55ced4e26480]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: mountinfo parse: #1 read mountinfo
+51: libmount:      TAB: [0x55ced4e26480]: /proc/self/mountinfo: start parsing [entries=0, filter=not]
+51: libmount:       FS: [0x55ced4e27e90]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: overlay /
+51: libmount:    CACHE: canonicalize path /proc/self/mountinfo
+51: libmount:      TAB: TID for /proc/self/mountinfo is 51
+51: libmount:       FS: [0x55ced4e28700]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: proc /proc
+51: libmount:       FS: [0x55ced4e28900]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /dev
+51: libmount:       FS: [0x55ced4e28b30]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: devpts /dev/pts
+51: libmount:       FS: [0x55ced4e28d80]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: sysfs /sys
+51: libmount:       FS: [0x55ced4e28fa0]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: cgroup /sys/fs/cgroup
+51: libmount:       FS: [0x55ced4e29230]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: mqueue /dev/mqueue
+51: libmount:       FS: [0x55ced4e29450]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: shm /dev/shm
+51: libmount:       FS: [0x55ced4e29690]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /scratch
+51: libmount:       FS: [0x55ced4e298d0]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /tmp
+51: libmount:       FS: [0x55ced4e29b10]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /src
+51: libmount:       FS: [0x55ced4e29d70]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: /dev/nvme0n1p2 /etc/resolv.conf
+51: libmount:       FS: [0x55ced4e29fd0]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: /dev/nvme0n1p2 /etc/hostname
+51: libmount:       FS: [0x55ced4e2a230]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: /dev/nvme0n1p2 /etc/hosts
+51: libmount:       FS: [0x55ced4e2a490]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: proc /proc/bus
+51: libmount:       FS: [0x55ced4e2a6b0]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: proc /proc/fs
+51: libmount:       FS: [0x55ced4e2a8d0]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: proc /proc/irq
+51: libmount:       FS: [0x55ced4e2aaf0]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: proc /proc/sys
+51: libmount:       FS: [0x55ced4e2ad10]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: proc /proc/sysrq-trigger
+51: libmount:       FS: [0x55ced4e2af30]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /proc/asound
+51: libmount:       FS: [0x55ced4e2b160]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /proc/acpi
+51: libmount:       FS: [0x55ced4e2b390]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /proc/interrupts
+51: libmount:       FS: [0x55ced4e2b5c0]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /proc/kcore
+51: libmount:       FS: [0x55ced4e2b7f0]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /proc/keys
+51: libmount:       FS: [0x55ced4e2ba20]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /proc/timer_list
+51: libmount:       FS: [0x55ced4e2bc50]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /sys/firmware
+51: libmount:       FS: [0x55ced4e2be80]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /sys/devices/virtual/powercap
+51: libmount:       FS: [0x55ced4e2c0c0]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /sys/devices/system/cpu/cpu0/thermal_throttle
+51: libmount:       FS: [0x55ced4e2c310]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /sys/devices/system/cpu/cpu1/thermal_throttle
+51: libmount:       FS: [0x55ced4e2c560]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /sys/devices/system/cpu/cpu2/thermal_throttle
+51: libmount:       FS: [0x55ced4e2c7b0]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /sys/devices/system/cpu/cpu3/thermal_throttle
+51: libmount:       FS: [0x55ced4e2ca00]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /sys/devices/system/cpu/cpu4/thermal_throttle
+51: libmount:       FS: [0x55ced4e2cc50]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /sys/devices/system/cpu/cpu5/thermal_throttle
+51: libmount:       FS: [0x55ced4e2cea0]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /sys/devices/system/cpu/cpu6/thermal_throttle
+51: libmount:       FS: [0x55ced4e2d0f0]: alloc
+51: libmount:      TAB: [0x55ced4e26480]: add entry: tmpfs /sys/devices/system/cpu/cpu7/thermal_throttle
+51: libmount:       FS: [0x55ced4e2d340]: alloc
+51: libmount:       FS: [0x55ced4e2d340]: free [refcount=0]
+51: libmount:      TAB: [0x55ced4e26480]: end-of-file
+51: libmount:      TAB: [0x55ced4e26480]: /proc/self/mountinfo: stop parsing (35 entries)
+51: libmount:      TAB: [0x55ced4e26480]: parsing done [filename=/proc/self/mountinfo, rc=0]
+51: libmount:      TAB: [0x55ced4e26480]: mountinfo parse: #2 read utab
+51: libmount:      CXT: [0x55ced4e26a20]: mountinfo requested [nents=35]
+51: libmount:     HOOK: [0x7f4e8b64c6a0]: deinit '__loopdev'
+51: libmount:     HOOK: [0x7f4e8b64c6c0]: deinit '__veritydev'
+51: libmount:     HOOK: [0x7f4e8b64c5c0]: deinit '__mkdir'
+51: libmount:     HOOK: [0x7f4e8b64c620]: deinit '__selinux'
+51: libmount:     HOOK: [0x7f4e8b64c640]: deinit '__subdir'
+51: libmount:     HOOK: [0x7f4e8b64c580]: deinit '__mount'
+51: libmount:      CXT: [0x55ced4e26a20]:  removing mount hook from __mount
+51: libmount:      CXT: [0x55ced4e26a20]:  removing mount hook from __mount
+51: libmount:      CXT: [0x55ced4e26a20]:  removing post-mount hook from __mount
+51: libmount:      CXT: [0x55ced4e26a20]:  free '__mount' data
+51: libmount:     HOOK: [0x7f4e8b64c5a0]: deinit '__legacy-mount'
+51: libmount:     HOOK: [0x7f4e8b64c680]: deinit '__idmap'
+51: libmount:     HOOK: [0x7f4e8b64c660]: deinit '__owner'
+51: libmount:      CXT: [0x55ced4e26a20]: mnt_context_mount() done [rc=-1]
+51: libmount:  OPTLIST: [0x55ced4e26b80]: return flags 0x0000000f [map=0x7f4e8b64bc40]
+51: libmount:  OPTLIST: [0x55ced4e26b80]: return flags 0x00000000 [map=0x7f4e8b64ba40]
+51: libmount:      CXT: [0x55ced4e26a20]: mountinfo requested [nents=35]
+51: libmount:      CXT: [0x55ced4e26a20]: excode: rc=32 message="zeros-smoke already mounted or mount point busy"
+mount: /scratch/probe: zeros-smoke already mounted or mount point busy.
+       dmesg(1) may have more information after failed mount system call.
+51: libmount:      CXT: [0x55ced4e26a20]: <---- reset [status=0] ---->
+51: libmount:       FS: [0x55ced4e26ec0]: free [refcount=0]
+51: libmount:      TAB: [0x55ced4e26480]: reset
+51: libmount:       FS: [0x55ced4e27e90]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e28700]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e28900]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e28b30]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e28d80]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e28fa0]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e29230]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e29450]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e29690]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e298d0]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e29b10]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e29d70]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e29fd0]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2a230]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2a490]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2a6b0]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2a8d0]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2aaf0]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2ad10]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2af30]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2b160]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2b390]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2b5c0]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2b7f0]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2ba20]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2bc50]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2be80]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2c0c0]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2c310]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2c560]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2c7b0]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2ca00]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2cc50]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2cea0]: free [refcount=0]
+51: libmount:       FS: [0x55ced4e2d0f0]: free [refcount=0]
+51: libmount:      TAB: [0x55ced4e26480]: free [refcount=0]
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  remove size
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  remove ro
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  remove noexec
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  remove nosuid
+51: libmount:  OPTLIST: [0x55ced4e26b80]:  remove nodev
+51: libmount:      CXT: reset syscall status
+51: libmount:      CXT: reset messages
+51: libmount:    CACHE: [0x55ced4e27040]: free [refcount=0]
+51: libmount:      CXT: [0x55ced4e26a20]: Setting (null) as target namespace
+51: libmount:      CXT: [0x55ced4e26a20]: free

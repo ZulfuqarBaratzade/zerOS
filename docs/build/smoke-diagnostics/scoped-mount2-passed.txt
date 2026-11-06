@@ -1,0 +1,176 @@
+Builder userspace: Debian trixie / amd64 (Docker)
+Preflight OK (environment)
+461 332 0:58 / / ro,relatime - overlay overlay rw,lowerdir=/var/lib/docker/overlay2/l/KWGKOV3J6JUHVKH7IMI5IQZ2BT:/var/lib/docker/overlay2/l/LJ5EYF3FSFTUDSAVO7NFDH6BMT:/var/lib/docker/overlay2/l/AL5FULDHSJDWR33BLVJREBXC7F:/var/lib/docker/overlay2/l/IUARNSGJRGSUTP4ND4XI7KOEII:/var/lib/docker/overlay2/l/MUUJ5I3R4KTY5ITQHMSO25BAII:/var/lib/docker/overlay2/l/BS3COCWFH5BSJXZAOCCAAK6Y5L,upperdir=/var/lib/docker/overlay2/dfe1f2c1f64abd401e4f173e93ffb56dc6e24ced7338e3636229daa556eb60c7/diff,workdir=/var/lib/docker/overlay2/dfe1f2c1f64abd401e4f173e93ffb56dc6e24ced7338e3636229daa556eb60c7/work
+464 461 0:77 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw
+497 461 0:78 / /dev rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+498 497 0:79 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,gid=5,mode=620,ptmxmode=666
+499 461 0:80 / /sys ro,nosuid,nodev,noexec,relatime - sysfs sysfs ro
+500 499 0:31 / /sys/fs/cgroup ro,nosuid,nodev,noexec,relatime - cgroup2 cgroup rw,nsdelegate,memory_recursiveprot,memory_hugetlb_accounting
+501 497 0:75 / /dev/mqueue rw,nosuid,nodev,noexec,relatime - mqueue mqueue rw
+502 497 0:81 / /dev/shm rw,nosuid,nodev,noexec,relatime - tmpfs shm rw,size=65536k,inode64
+503 461 0:82 / /scratch rw,nosuid,nodev,noexec,relatime - tmpfs tmpfs rw,size=16384k,inode64
+504 461 0:83 / /tmp rw,nosuid,nodev,noexec,relatime - tmpfs tmpfs rw,size=65536k,inode64
+505 461 0:45 /zeros-smoke-review-zt1_720a/source /src ro,nosuid,nodev - tmpfs tmpfs rw,size=8078328k,nr_inodes=1048576,inode64
+506 461 259:2 /var/lib/docker/containers/47e7749ab683b4ad125eebf77acbba84a1b959c6fb99d80e54774c4ca6e3fa0b/resolv.conf /etc/resolv.conf ro,relatime - ext4 /dev/nvme0n1p2 rw,errors=remount-ro
+507 461 259:2 /var/lib/docker/containers/47e7749ab683b4ad125eebf77acbba84a1b959c6fb99d80e54774c4ca6e3fa0b/hostname /etc/hostname ro,relatime - ext4 /dev/nvme0n1p2 rw,errors=remount-ro
+508 461 259:2 /var/lib/docker/containers/47e7749ab683b4ad125eebf77acbba84a1b959c6fb99d80e54774c4ca6e3fa0b/hosts /etc/hosts ro,relatime - ext4 /dev/nvme0n1p2 rw,errors=remount-ro
+333 464 0:77 /bus /proc/bus ro,nosuid,nodev,noexec,relatime - proc proc rw
+334 464 0:77 /fs /proc/fs ro,nosuid,nodev,noexec,relatime - proc proc rw
+335 464 0:77 /irq /proc/irq ro,nosuid,nodev,noexec,relatime - proc proc rw
+336 464 0:77 /sys /proc/sys ro,nosuid,nodev,noexec,relatime - proc proc rw
+337 464 0:77 /sysrq-trigger /proc/sysrq-trigger ro,nosuid,nodev,noexec,relatime - proc proc rw
+396 464 0:84 / /proc/asound ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+397 464 0:84 / /proc/acpi ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+398 464 0:78 /null /proc/interrupts rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+399 464 0:78 /null /proc/kcore rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+400 464 0:78 /null /proc/keys rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+441 464 0:78 /null /proc/timer_list rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+442 499 0:84 / /sys/firmware ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+443 499 0:84 / /sys/devices/virtual/powercap ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+444 499 0:84 / /sys/devices/system/cpu/cpu0/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+445 499 0:84 / /sys/devices/system/cpu/cpu1/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+446 499 0:84 / /sys/devices/system/cpu/cpu2/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+447 499 0:84 / /sys/devices/system/cpu/cpu3/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+448 499 0:84 / /sys/devices/system/cpu/cpu4/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+449 499 0:84 / /sys/devices/system/cpu/cpu5/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+450 499 0:84 / /sys/devices/system/cpu/cpu6/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+451 499 0:84 / /sys/devices/system/cpu/cpu7/thermal_throttle ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+CapEff:	0000000000240000
+CapBnd:	0000000000240000
+NoNewPrivs:	1
+Seccomp:	2
+zeros-smoke (enforce)
+51: libmount:     INIT: library debug mask: 0xffffff
+51: libmount:     INIT: library version: 2.41.5
+51: libmount:     INIT:     feature: selinux
+51: libmount:     INIT:     feature: smack
+51: libmount:     INIT:     feature: btrfs
+51: libmount:     INIT:     feature: verity
+51: libmount:     INIT:     feature: namespaces
+51: libmount:     INIT:     feature: idmapping
+51: libmount:     INIT:     feature: fd-based-mount
+51: libmount:     INIT:     feature: statmount
+51: libmount:     INIT:     feature: statx
+51: libmount:     INIT:     feature: assert
+51: libmount:     INIT:     feature: debug
+Available "LIBMOUNT_DEBUG=<name>[,...]|<mask>" debug masks:
+   all      [0xffffff] : info about all subsystems
+   cache    [0x000004] : paths and tags cache
+   cxt      [0x000200] : library context (handler)
+   diff     [0x000400] : mountinfo changes tracking
+   fs       [0x000040] : FS abstraction
+   help     [0x000001] : this help
+   hook     [0x008000] : hooks functionality
+   locks    [0x000010] : mtab and utab locking
+   loop     [0x002000] : loop devices routines
+   options  [0x000008] : mount options parsing
+   optlist  [0x010000] : mount options container
+   tab      [0x000020] : fstab, mtab, mountinfo routines
+   update   [0x000080] : mtab, utab updates
+   utils    [0x000100] : misc library utils
+   monitor  [0x000800] : mount tables monitor
+   btrfs    [0x001000] : btrfs specific routines
+   verity   [0x004000] : verity specific routines
+51: libmount:      CXT: reset syscall status
+51: libmount:      CXT: reset messages
+51: libmount:      CXT: [0x56147de06a20]: ----> allocate 
+51: libmount:      CXT: [0x56147de06a20]: enabling flag 0010
+51: libmount:  OPTLIST: [0x56147de06b80]: alloc
+51: libmount:  OPTLIST: [0x56147de06b80]: registr map 0x7f7b72d6ec40
+51: libmount:  OPTLIST: [0x56147de06b80]: registr map 0x7f7b72d6ea40
+51: libmount:  OPTLIST: [0x56147de06b80]: append size=1m,nosuid,nodev,noexec
+51: libmount:  OPTLIST: [0x56147de06b80]:  added size
+51: libmount:  OPTLIST: [0x56147de06b80]:  added nosuid [id=0x00000002 map=0x7f7b72d6ec40]
+51: libmount:  OPTLIST: [0x56147de06b80]:  added nodev [id=0x00000004 map=0x7f7b72d6ec40]
+51: libmount:  OPTLIST: [0x56147de06b80]:  added noexec [id=0x00000008 map=0x7f7b72d6ec40]
+51: libmount:       FS: [0x56147de06ec0]: alloc
+51: libmount:      CXT: [0x56147de06a20]: mount: preparing
+51: libmount:      CXT: [0x56147de06a20]: use default optsmode
+51: libmount:  OPTLIST: [0x56147de06b80]: return flags 0x0000000e [map=0x7f7b72d6ec40]
+51: libmount:      CXT: [0x56147de06a20]: OPTSMODE (file-part): force=0, fstab=1, mtab=1
+51: libmount:      CXT: [0x56147de06a20]: fstab not required -- skip
+51: libmount:  OPTLIST: [0x56147de06b80]: merging
+51: libmount:      CXT: [0x56147de06a20]: mount: evaluating permissions
+51: libmount:  OPTLIST: [0x56147de06b80]: return flags 0x00000000 [map=0x7f7b72d6ea40]
+51: libmount:      CXT: [0x56147de06a20]: perms: superuser [rc=0]
+51: libmount:      CXT: [0x56147de06a20]: --> preparing options
+51: libmount:      CXT: [0x56147de06a20]: ---> stage:prep-options
+51: libmount:      CXT: [0x56147de06a20]: calling __selinux [first]
+51: libmount:     HOOK: [0x7f7b72d6f620]:  SELinux fix options
+51: libmount:      CXT: [0x56147de06a20]: calling __idmap [first]
+51: libmount:      CXT: [0x56147de06a20]: calling __owner [first]
+51: libmount:      CXT: [0x56147de06a20]: <--- stage:prep-options [rc=0 status=1]
+51: libmount:      CXT: [0x56147de06a20]: <-- preparing options done [rc=0]
+51: libmount:      CXT: [0x56147de06a20]: --> preparing source path
+51: libmount:      CXT: [0x56147de06a20]: srcpath 'zeros-smoke'
+51: libmount:    CACHE: [0x56147de07040]: alloc
+51: libmount:      CXT: [0x56147de06a20]: REMOUNT/BIND/MOVE/pseudo FS source: zeros-smoke
+51: libmount:      CXT: [0x56147de06a20]: --> preparing fstype
+51: libmount:      CXT: [0x56147de06a20]: FS type: tmpfs [rc=0]
+51: libmount:      CXT: [0x56147de06a20]: --> preparing target path
+51: libmount:    CACHE: [0x56147de07040]: canonicalize path /scratch/probe
+51: libmount:    CACHE: [0x56147de07040]: add entry [ 1] (path): /scratch/probe: /scratch/probe
+51: libmount:      CXT: [0x56147de06a20]: ---> stage:prep-target
+51: libmount:      CXT: [0x56147de06a20]: calling __mkdir [first]
+51: libmount:      CXT: [0x56147de06a20]: calling __subdir [first]
+51: libmount:      CXT: [0x56147de06a20]: <--- stage:prep-target [rc=0 status=1]
+51: libmount:      CXT: [0x56147de06a20]: final target '/scratch/probe' [rc=0]
+51: libmount:      CXT: [0x56147de06a20]: checking for helper
+51: libmount:      CXT: [0x56147de06a20]: /sbin/mount.tmpfs         ... not found
+51: libmount:      CXT: [0x56147de06a20]: /sbin/fs.d/mount.tmpfs    ... not found
+51: libmount:      CXT: [0x56147de06a20]: /sbin/fs/mount.tmpfs      ... not found
+51: libmount:      CXT: [0x56147de06a20]: ---> stage:prep
+51: libmount:      CXT: [0x56147de06a20]: calling __mount [first]
+51: libmount:     HOOK: [0x7f7b72d6f580]: new API disabled
+51: libmount:      CXT: [0x56147de06a20]: calling __legacy-mount [first]
+51: libmount:      CXT: [0x56147de06a20]:  appending mount hook from __legacy-mount
+51: libmount:  OPTLIST: [0x56147de06b80]: return flags 0x0000000e [map=0x7f7b72d6ec40]
+51: libmount:      CXT: [0x56147de06a20]: <--- stage:prep [rc=0 status=1]
+51: libmount:      CXT: [0x56147de06a20]: --> prepare update
+51: libmount:      CXT: [0x56147de06a20]: utab path initialized to: /run/mount/utab
+51: libmount:      CXT: [0x56147de06a20]: checking for writable tab files
+51: libmount:    UTILS: utab: /run/mount/utab
+51: libmount:    UTILS: /run/mount/utab: irregular/non-writable file
+51: libmount:      CXT: [0x56147de06a20]: skip update: no writable destination
+51: libmount:      CXT: [0x56147de06a20]: mount: do mount
+51: libmount:      CXT: [0x56147de06a20]: ---> stage:pre-mount
+51: libmount:      CXT: [0x56147de06a20]: <--- stage:pre-mount [rc=0 status=1]
+51: libmount:      CXT: reset syscall status
+51: libmount:      CXT: reset messages
+51: libmount:      CXT: [0x56147de06a20]: ---> stage:mount
+51: libmount:      CXT: [0x56147de06a20]: calling __legacy-mount [active]
+51: libmount:  OPTLIST: [0x56147de06b80]: return flags 0x0000000e [map=0x7f7b72d6ec40]
+51: libmount:     HOOK: [0x7f7b72d6f5a0]:   mount(2) [source=zeros-smoke, target=/scratch/probe, type=tmpfs, flags=0x0000000e, options=size=1m]
+51: libmount:      CXT: [0x56147de06a20]: <--- stage:mount [rc=0 status=0]
+51: libmount:      CXT: [0x56147de06a20]: ---> stage:post-mount
+51: libmount:      CXT: [0x56147de06a20]: <--- stage:post-mount [rc=0 status=0]
+51: libmount:      CXT: [0x56147de06a20]: mnt_context_do_mount() done [rc=0]
+51: libmount:      CXT: [0x56147de06a20]: don't update: no update prepared
+51: libmount:      CXT: [0x56147de06a20]: ---> stage:post
+51: libmount:      CXT: [0x56147de06a20]: <--- stage:post [rc=0 status=0]
+51: libmount:     HOOK: [0x7f7b72d6f6a0]: deinit '__loopdev'
+51: libmount:     HOOK: [0x7f7b72d6f6c0]: deinit '__veritydev'
+51: libmount:     HOOK: [0x7f7b72d6f5c0]: deinit '__mkdir'
+51: libmount:     HOOK: [0x7f7b72d6f620]: deinit '__selinux'
+51: libmount:     HOOK: [0x7f7b72d6f640]: deinit '__subdir'
+51: libmount:     HOOK: [0x7f7b72d6f580]: deinit '__mount'
+51: libmount:     HOOK: [0x7f7b72d6f5a0]: deinit '__legacy-mount'
+51: libmount:      CXT: [0x56147de06a20]:  removing mount hook from __legacy-mount
+51: libmount:     HOOK: [0x7f7b72d6f680]: deinit '__idmap'
+51: libmount:     HOOK: [0x7f7b72d6f660]: deinit '__owner'
+51: libmount:      CXT: [0x56147de06a20]: mnt_context_mount() done [rc=0]
+51: libmount:      CXT: [0x56147de06a20]: excode: rc=0 message=""
+51: libmount:  OPTLIST: [0x56147de06b80]: return flags 0x0000000e [map=0x7f7b72d6ec40]
+51: libmount:      CXT: [0x56147de06a20]: <---- reset [status=1] ---->
+51: libmount:       FS: [0x56147de06ec0]: free [refcount=0]
+51: libmount:  OPTLIST: [0x56147de06b80]:  remove size
+51: libmount:  OPTLIST: [0x56147de06b80]:  remove nosuid
+51: libmount:  OPTLIST: [0x56147de06b80]:  remove nodev
+51: libmount:  OPTLIST: [0x56147de06b80]:  remove noexec
+51: libmount:      CXT: reset syscall status
+51: libmount:      CXT: reset messages
+51: libmount:    CACHE: [0x56147de07040]: free [refcount=0]
+51: libmount:      CXT: [0x56147de06a20]: Setting (null) as target namespace
+51: libmount:      CXT: [0x56147de06a20]: free
+mount: zeros-smoke mounted on /scratch/probe.
+SMOKE_PASS: tmpfs mount/read/write/umount + chroot
